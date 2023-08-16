@@ -1,0 +1,86 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="student_list_view">
+      <field name="name">Student list</field>
+      <field name="model">univercity.student</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="f_name"/>
+          <field name="l_name"/>
+          <field name="sexe"/>
+          <field name="indentity_card"/>
+          <field name="birthday"/>
+          <field name="inscrition_date"/>
+
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit form view definition -->
+
+    <record model="ir.ui.view" id="student_form_view">
+      <field name="name">Student Form</field>
+      <field name="model">univercity.student</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="f_name"/>
+            <field name="l_name"/>
+            <field name="sexe"/>
+            <field name="indentity_card"/>
+            <field name="adress"/>
+            <field name="birthday"/>
+            <field name="inscrition_date"/>
+            <field name="email"/>
+            <field name="phone"/>
+         </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="student_action_window">
+      <field name="name">student window</field>
+      <field name="res_model">univercity.student</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="univercity.action_server">
+      <field name="name">univercity server</field>
+      <field name="model_id" ref="model_univercity_univercity"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="Univercity" id="univercity.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Students" id="univercity_students_cat" parent="univercity.menu_root"/>
+    <!--
+    <menuitem name="Menu 2" id="univercity.menu_2" parent="univercity.menu_root"/>
+-->
+    <!-- actions -->
+
+    <menuitem name="List of students" id="univercity_students_list" parent="univercity_students_cat"
+              action="student_action_window"/>
+    <!--<menuitem name="Server to list" id="univercity" parent="univercity.menu_2"
+              action="univercity.action_server"/>
+-->
+  </data>
+</odoo>
