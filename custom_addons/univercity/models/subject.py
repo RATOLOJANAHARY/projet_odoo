@@ -11,5 +11,6 @@ class UnivercitySubject(models.Model):
 
 
     #objet manytomany plusieurs plusieurs
-    proffesor_ids = fields.One2many(comodel_name='univercity.proffesor', inverse_name='departement_id')
-    proffesor_ids = fields.One2many(comodel_name='univercity.proffesor', inverse_name='departement_id')
+    departement_id = fields.Many2one(comodel_name='univercity.departement')
+    #classroom_id = fields.Many2one(comodel_name='univercity.classroom')
+

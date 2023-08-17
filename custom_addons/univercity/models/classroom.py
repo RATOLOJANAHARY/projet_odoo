@@ -8,3 +8,5 @@ class UnivercityClassroom(models.Model):
 
     name = fields.Char()
     code = fields.Char()
+
+    student_ids = fields.One2many(comodel_name='univercity.student',inverse_name='classroom_id ')

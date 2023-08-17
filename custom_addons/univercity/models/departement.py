@@ -10,4 +10,5 @@ class UnivercityDepartement(models.Model):
     code = fields.Char()
 
     # objet many2one ou un ou plusieurs
-    departement_id = fields.Many2one(comodel_name='univercity.departement')
+    departement_ids = fields.One2many(comodel_name='univercity.proffesor',inverse_name='departement_id')
+    subject_ids = fields.One2many(comodel_name='univercity.subject'.inverse_name='departement.id')
